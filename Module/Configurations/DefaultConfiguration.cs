@@ -49,7 +49,7 @@ namespace GVRP.Module.Configurations
             DevMode = bool.Parse(data["devmode"]);
             VoiceChannel = data["V_Channel"];
             VoiceChannelPassword = data["V_PW"];
-            IsServerOpen = false;
+            IsServerOpen = true;
             InventoryActivated = true;
             EKeyActivated = true;
             BlackMoneyEnabled = true;  //set to true later

@@ -5,30 +5,26 @@ namespace GVRP.Module.Telefon.App.Settings.Wallpaper
 {
     public class Wallpaper : Loadable<uint>
     {
-        [JsonProperty("id")]
-        public int Id
+        [JsonProperty(PropertyName = "id")]
+        public uint Id { get; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; }
+        [JsonProperty(PropertyName = "file")]
+        public string File { get; }
+        [JsonIgnore]
+        public bool isTeamOnly { get; }
+
+        public Wallpaper(MySqlDataReader reader) : base(reader)
         {
-            get;
-            set;
-        }
-        [JsonProperty("name")]
-        public string Name
-        {
-            get;
-            set;
-        }
-        [JsonProperty("file")]
-        public string File
-        {
-            get;
-            set;
+            Id = reader.GetUInt32("id");
+            Name = reader.GetString("name");
+            File = reader.GetString("file");
+            isTeamOnly = reader.GetBoolean("isTeam");
         }
 
-        public Wallpaper(int id, string name, string file)
+        public override uint GetIdentifier()
         {
-            this.Id = id;
-            this.Name = name;
-            this.File = file;
+            return Id;
         }
     }
 }
