@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Venom": {
+      "commandName": "Executable",
+      "executablePath": "../server-files/ragemp-server.exe",
+      "workingDirectory": "../server-files/",
+      "remoteDebugEnabled": false
+    }
+  }
+}

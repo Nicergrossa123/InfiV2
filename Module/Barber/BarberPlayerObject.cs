@@ -1,0 +1,4 @@
+﻿namespace GVRP.Module.Barber
+{
+
+}
