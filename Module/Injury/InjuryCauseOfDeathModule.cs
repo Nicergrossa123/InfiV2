@@ -2,7 +2,7 @@
 
 namespace GVRP.Module.Injury
 {
-    public class InjuryCauseOfDeathModule : SqlModule<InjuryCauseOfDeathModule, InjuryCauseOfDeath, uint>
+    public class    InjuryCauseOfDeathModule : SqlModule<InjuryCauseOfDeathModule, InjuryCauseOfDeath, uint>
     {
         public override Type[] RequiredModules()
         {

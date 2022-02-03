@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace GVRP.Module.Telefon.App.Settings.Wallpaper
 {
     public class Wallpaper : Loadable<uint>
-    {
+    {   
         [JsonProperty(PropertyName = "id")]
         public uint Id { get; }
         [JsonProperty(PropertyName = "name")]
