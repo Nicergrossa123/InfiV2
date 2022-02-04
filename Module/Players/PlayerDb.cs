@@ -553,98 +553,37 @@ namespace GVRP.Module.Players
 
         public static void SaveJobSkill(this DbPlayer iPlayer)
         {
-            //     string playerjob = Convert.ToString(iPlayer.job[0]);
-            //     string jobskills = iPlayer.job_skills[0];
-            //      int actualskill = Convert.ToInt32(iPlayer.jobskill[0]);
-            //      string newinventory = "";
-            //     bool found = false;
-
-            //          if (jobskills != "")
-            //         {
-            //             string[] Items = jobskills.Split(',');
-            //           foreach (string item in Items)
-            //     {
-            //               string[] parts = item.Split(':');
-            //               if (parts[0] == playerjob)
-            //             {
-            //                  if (newinventory == "")
-            //                  {
-            //                     newinventory = playerjob + ":" + Convert.ToString(actualskill);
-            //                   }
-            //                  else
-            //                {
-            //                     newinventory =
-            //                     newinventory + "," + playerjob + ":" +
-            //                        Convert.ToString(actualskill);
-            //               }
-
-            //              found = true;
-
-            //         }
-
-            //             else
-
-            //            {
-
-            //            if (newinventory == "")
-
-            //              {
-
-            //               newinventory = parts[0] + ":" + parts[1];
-
-            //            }
-
-            //                   else
-
-            //                 {
-
-            //           newinventory = newinventory + "," + parts[0] + ":" + parts[1];
-
-            //                }
-
-            //              }
-
-            //               }
-
-
-            //              if (!found)
-
-            //             {
-
-            //                if (newinventory == "")
-
-            //                 {
-
-            //                    newinventory = playerjob + ":" + Convert.ToString(actualskill);
-
-            //                 }
-
-            //                 else
-
-            //                  {
-
-            //                     newinventory =
-
-            //                     newinventory + "," + playerjob + ":" + Convert.ToString(actualskill);
-
-            //                 }
-
-            //              }
-
-            //          }
-
-            //          else
-
-            //         {
-
-            //             newinventory = playerjob + ":" + Convert.ToString(actualskill);
-
-            //      }
-
-            //   iPlayer.job_skills[0] = newinventory;
+            string text = Convert.ToString(iPlayer.job[0]);
+            string text2 = iPlayer.job_skills[0];
+            int num = Convert.ToInt32(iPlayer.jobskill[0]);
+            string text3 = "";
+            bool flag = false;
+            if (text2 != "")
+            {
+                string[] array = text2.Split(',');
+                for (int i = 0; i < array.Length; i++)
+                {
+                    string[] array2 = array[i].Split(':');
+                    if (array2[0] == text)
+                    {
+                        text3 = ((!(text3 == "")) ? (text3 + "," + text + ":" + Convert.ToString(num)) : (text + ":" + Convert.ToString(num)));
+                        flag = true;
+                    }
+                    else
+                    {
+                        text3 = ((!(text3 == "")) ? (text3 + "," + array2[0] + ":" + array2[1]) : (array2[0] + ":" + array2[1]));
+                    }
+                }
+                if (!flag)
+                {
+                    text3 = ((!(text3 == "")) ? (text3 + "," + text + ":" + Convert.ToString(num)) : (text + ":" + Convert.ToString(num)));
+                }
+            }
+            else
+            {
+                text3 = text + ":" + Convert.ToString(num);
+            }
+            iPlayer.job_skills[0] = text3;
         }
-
-
-
     }
 }
