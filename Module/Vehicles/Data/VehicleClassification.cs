@@ -4,6 +4,8 @@ namespace GVRP.Module.Vehicles.Data
 {
     public enum VehicleClassificationTypes
     {
+
+        //Sam
         Pkw = 1,
         Fahrrad = 2,
         Boot = 3,

@@ -52,7 +52,7 @@ namespace GVRP.Module.Teams
         {
             return Id == (int)teams.TEAM_HUSTLER || Id == (int)teams.TEAM_BRATWA || Id == (int)teams.TEAM_ICA;
         }
-        public bool IsMethTeamId(uint Id)
+        public bool     IsMethTeamId(uint Id)
         {
             return Id == (int)teams.TEAM_TRIADEN || Id == (int)teams.TEAM_YAKUZA || Id == (int)teams.TEAM_LCN;
         }

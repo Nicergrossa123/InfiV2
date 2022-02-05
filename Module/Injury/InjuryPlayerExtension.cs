@@ -1,5 +1,10 @@
-﻿using GTANetworkAPI;
+﻿using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using GTANetworkAPI;
 using GVRP.Handler;
+using GVRP.Module.AnimationMenu;
 using GVRP.Module.Chat;
 using GVRP.Module.ClientUI.Components;
 using GVRP.Module.Items;
@@ -14,8 +19,7 @@ using GVRP.Module.Service;
 using GVRP.Module.Telefon.App;
 using GVRP.Module.Vehicles;
 using GVRP.Module.Voice;
-using System;
-using System.Threading.Tasks;
+using static GVRP.Module.Players.Db.DbPlayer;
 
 namespace GVRP.Module.Injury
 {
@@ -195,7 +199,7 @@ namespace GVRP.Module.Injury
                     return;
                 }
 
-                if ((medic.IsAMedic() && medic.Duty) || (medic.ParamedicLicense && (!medic.IsAGangster() || dbPlayer.TeamId == medic.TeamId)) || medic.IsACop() && medic.ParamedicLicense)
+                if ((medic.IsAMedic() && medic.Duty) || (medic.ParamedicLicense && (!medic.IsAGangster() || dbPlayer.TeamId == medic.TeamId)))
                 {
 
                     if (dbPlayer.Injury.ItemToStabilizeId != 0 || dbPlayer.Player.Dimension == 0)
@@ -219,11 +223,11 @@ namespace GVRP.Module.Injury
 
                                 Console.WriteLine("Wichtig14");
 
-                                if (sxVehicle == null || (medic.IsAGangster() && sxVehicle.Data.ClassificationId == 8)) // Remove Heli for Gang medics
+                              /*  if (sxVehicle == null || (medic.IsAGangster() && sxVehicle.Data.ClassificationId == 8)) // Remove Heli for Gang medics
                                 {
                                     medic.SendNewNotification($"Kein Krankenwagen zum Transport in der naehe!");
                                     return;
-                                }
+                                }*/
 
                                 Console.WriteLine("Wichtig15");
 

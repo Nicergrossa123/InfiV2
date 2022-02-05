@@ -608,18 +608,18 @@ namespace GVRP.Module.Players
                     return;
                 }
 
+
                 if (destinationDbPlayer.HasData("Stabilize"))
                 {
                     Console.WriteLine("Nigger88");
                     InjuryPlayerExtension.Medicate(destinationDbPlayer, dbPlayer);
                 }
 
-                if (destinationDbPlayer.HasData("Stabilize") && (!dbPlayer.IsAMedic() || !dbPlayer.IsAGangster() || (dbPlayer.IsAMedic() && !dbPlayer.IsInDuty()) || (dbPlayer.IsAGangster() && !dbPlayer.ParamedicLicense) || dbPlayer.IsACop() && !dbPlayer.ParamedicLicense ) || destinationDbPlayer.HasData("Istimnegerkh") && (!dbPlayer.IsAMedic() || !dbPlayer.IsAGangster() || (dbPlayer.IsAMedic() && !dbPlayer.IsInDuty()) || (dbPlayer.IsAGangster() && !dbPlayer.ParamedicLicense)))
+                if (destinationDbPlayer.HasData("Stabilize") && !dbPlayer.IsAMedic() || destinationDbPlayer.HasData("Istimnegerkh") && !dbPlayer.IsAMedic())
                 {
                     dbPlayer.SendNewNotification($"Stabilisierten {destinationDbPlayer.Injury.Name} können sie nicht behandeln!");
                     return;
                 }
-
                 if (dbPlayer.Lic_FirstAID[0] == 0)
                 {
                     Console.WriteLine("kein aid license");
